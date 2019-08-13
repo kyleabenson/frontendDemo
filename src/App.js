@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import randomColor from 'randomcolor';
 import TagCloud from 'react-tag-cloud';
 import CloudItem from './CloudItem';
-import { isWhiteSpaceLike } from 'typescript';
 
 const styles = {
   large: {
@@ -12,8 +11,14 @@ const styles = {
   small: {
     opacity: 0.7,
     fontSize: 16
-  }
+  },
+  fontFamily: 'Red Hat Display',
+  fontSize: () => Math.round(Math.random() * 50) + 16,
+  color: 'white',
+  padding: 5,
 };
+
+var dataEndpoint = process.env.EXPRESS_URL || 'https://api.github.com/repos/ansible/ansible/contributors';
 
 class App extends Component {
   state = {
@@ -26,11 +31,11 @@ class App extends Component {
       this.forceUpdate();
     }, 3000);
     this.setState({loading: true})
-    fetch('https://api.github.com/repos/ansible/ansible/contributors')
+    fetch(dataEndpoint)
         .then(data => data.json())
         .then(data => this.setState({data, loading: false}))
   }
-
+  
   render() {
     return (
       <div className='app-outer'>
@@ -42,11 +47,8 @@ class App extends Component {
                   className='tag-cloud'
                   style={{
                     fontFamily: 'Red Hat Display',
-                    fontSize: () => Math.round(Math.random() * 50) + 16,
-                    // fontSize: 30,
+                    // fontSize: () => Math.round(Math.random() * 50) + 16,
                     color: 'white',
-                      // hue: 'blue'
-                    // }),
                     padding: 5,
                   }}>
                   {this.state.data.map(

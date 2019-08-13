@@ -5,9 +5,6 @@ const CloudItem = (props) => (
         <div>
             { props.text }
         </div>
-        <div className="tag-item-tooltip">
-            HOVERED!
-        </div>
     </div>
 );
 
