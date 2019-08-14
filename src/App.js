@@ -1,24 +1,13 @@
 import React, { Component } from 'react';
-import randomColor from 'randomcolor';
 import TagCloud from 'react-tag-cloud';
 import CloudItem from './CloudItem';
 
-const styles = {
-  large: {
-    fontSize: 60,
-    fontWeight: 'bold'
-  },
-  small: {
-    opacity: 0.7,
-    fontSize: 16
-  },
-  fontFamily: 'Red Hat Display',
-  fontSize: () => Math.round(Math.random() * 50) + 16,
-  color: 'white',
-  padding: 5,
+if (process.env.EXPRESS_URL) {
+  var dataEndpoint = process.env.EXPRESS_URL;
+}
+else {
+  dataEndpoint ='https://api.github.com/repos/ansible/ansible/contributors';
 };
-
-var dataEndpoint = process.env.EXPRESS_URL || 'https://api.github.com/repos/ansible/ansible/contributors';
 
 class App extends Component {
   state = {
