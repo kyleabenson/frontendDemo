@@ -26,7 +26,7 @@ h1 {
    flex-direction: column;
    justify-content: center;
    left: 0;
-   padding: 20px 0;
+   padding: 0;
    position: absolute;
    right: 0;
    top: 0;
@@ -36,7 +36,6 @@ h1 {
    display: flex;
    flex-direction: column;
    height: 100%;
-   max-width: 1000px;
    width: 100%;
 }
 
@@ -49,7 +48,7 @@ h1 {
 }
 
 .tag-item-wrapper {
-   cursor: pointer;
+   font-size: 10px;
 }
 
 .tag-item-wrapper:hover {
