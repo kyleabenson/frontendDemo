@@ -2,12 +2,8 @@ import React, { Component } from 'react';
 import TagCloud from 'react-tag-cloud';
 import CloudItem from './CloudItem';
 
-if (process.env.EXPRESS_URL) {
-  var dataEndpoint = process.env.EXPRESS_URL;
-}
-else {
-  dataEndpoint ='https://api.github.com/repos/ansible/ansible/contributors';
-};
+var dataEndpoint = process.env.REACT_APP_EXPRESS_URL;
+
 
 class App extends Component {
   state = {
