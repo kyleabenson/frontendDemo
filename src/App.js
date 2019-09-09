@@ -3,7 +3,6 @@ import TagCloud from 'react-tag-cloud';
 import CloudItem from './CloudItem';
 
 var dataEndpoint = process.env.REACT_APP_EXPRESS_URL;
-var expressPort = ":5000"
 
 class App extends Component {
   state = {
@@ -16,7 +15,7 @@ class App extends Component {
       this.forceUpdate();
     }, 3000);
     this.setState({loading: true})
-    fetch(dataEndpoint + expressPort)
+    fetch(dataEndpoint)
         .then(data => data.json())
         .then(data => this.setState({data, loading: false}))
   }
