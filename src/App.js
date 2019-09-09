@@ -37,7 +37,7 @@ class App extends Component {
                   }}>
                   {this.state.data.map(
                     user =>
-                    <CloudItem text={user.first_name + " " + user.last_name} />
+                    <CloudItem text={user.first + " " + user.last} />
                   )}  
                 </TagCloud>
               </div>
