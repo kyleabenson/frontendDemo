@@ -26,7 +26,9 @@ class App extends Component {
         {this.state.loading
             ? <div>"Hang tight, we're loading..."</div>
             : <div className='app-inner'>
-                <h1>Thanks for attending</h1>
+                <h1>Thanks for attending AnsibleFest</h1>
+                <br></br>
+                <br></br>
                 <TagCloud 
                   className='tag-cloud'
                   style={{
